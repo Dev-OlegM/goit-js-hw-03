@@ -8,12 +8,13 @@ const products = [
 ];
 
 const getAllPropValues = function(arr, prop) {
-  const meaning = { ...arr };
-  const result = [];
-  for (const key in meaning) {
-    if (arr[key][prop]) result.push(arr[key][prop]);
+  const meaning = [];
+  for (const key of arr) {
+    if (key[prop] !== undefined) {
+      meaning.push(key[prop]);
+    }
   }
-  return result;
+  return meaning;
 };
 
 console.log(getAllPropValues(products, "name"));
